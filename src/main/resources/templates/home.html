@@ -24,7 +24,7 @@
         Role(s): <span sec:authentication="principal.authorities"></span>
     </p>
 
-    <hr>
+    <div sec:authorize="hasRole('MANAGER')">
 
     <!-- Add a link to point to /leaders -->
     <p>
@@ -32,13 +32,17 @@
         (only for managers)
     </p>
 
-    <hr>
+    </div>
+
+    <div sec:authorize="hasRole('ADMIN')">
 
     <!-- Add a link to point to /systems -->
     <p>
         <a th:href="@{/systems}">IT systems meeting</a>
         (only for administrators)
     </p>
+
+    </div>
 
     <hr>
 
